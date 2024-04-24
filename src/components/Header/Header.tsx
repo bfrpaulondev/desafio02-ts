@@ -1,9 +1,14 @@
-import './Header.css'
+import { Box, BoxProps } from '@chakra-ui/react';
+import './Header.css';
 
-export const Header  = () => {
-  return(
-    <div className='header'>
-      Dio Bank
-    </div>
-  )
+interface HeaderProps extends BoxProps {
+  children: React.ReactNode;
 }
+
+export const Header: React.FC<HeaderProps> = ({ children, ...rest }) => {
+  return (
+    <Box as='header' className='header' {...rest}>
+      {children}
+    </Box>
+  );
+};
